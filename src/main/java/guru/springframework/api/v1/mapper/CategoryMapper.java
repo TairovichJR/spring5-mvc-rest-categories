@@ -9,7 +9,7 @@ import guru.springframework.domain.Category;
 /**
  * Created by jt on 9/25/17.
  */
-@Mapper
+//@Mapper
 public interface CategoryMapper {
 
     public static final CategoryMapper INSTANCE = Mappers.getMapper(CategoryMapper.class);
