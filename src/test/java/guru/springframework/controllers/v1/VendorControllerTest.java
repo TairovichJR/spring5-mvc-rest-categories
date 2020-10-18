@@ -10,8 +10,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.mockito.ArgumentMatchers.any;
 import java.util.Arrays;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -34,7 +34,6 @@ public class VendorControllerTest extends AbstractRestControllerTest {
 	
 	@InjectMocks
 	VendorController vendorController;
-	
 	
 	MockMvc mockMvc;
 	
@@ -97,7 +96,8 @@ public class VendorControllerTest extends AbstractRestControllerTest {
 		when(vendorService.createNewVendor(vendorDTO)).thenReturn(returnDto);
 		
 		mockMvc.perform(post(VendorController.BASE_URL)
-				.contentType(MediaType.APPLICATION_JSON))
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(vendorDTO)))
 				.andExpect(status().isCreated())
 				.andExpect(jsonPath("$.name", equalTo("Abc Inc")))
 				.andExpect(jsonPath("$.vendor_url", equalTo(VendorController.BASE_URL+"/1")));
