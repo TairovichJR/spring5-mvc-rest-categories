@@ -51,13 +51,13 @@ public class VendorController {
 	
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public VendorDTO updateVendor(@PathVariable Long id, VendorDTO vendorDTO) {
+	public VendorDTO updateVendor(@PathVariable Long id, @RequestBody VendorDTO vendorDTO) {
 		return vendorService.updateVendorByDTO(id, vendorDTO);
 	}
 	
 	@PatchMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public VendorDTO patchCustomer(@PathVariable Long id, VendorDTO vendorDTO) {
+	public VendorDTO patchCustomer(@PathVariable Long id, @RequestBody VendorDTO vendorDTO) {
 		return vendorService.patchVendor(id, vendorDTO);
 	}
 	
