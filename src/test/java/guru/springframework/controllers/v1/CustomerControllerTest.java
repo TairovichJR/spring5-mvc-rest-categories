@@ -7,7 +7,6 @@ package guru.springframework.controllers.v1;
 import guru.springframework.api.v1.model.CustomerDTO;
 import guru.springframework.services.CustomerService;
 import guru.springframework.services.ResourceNotFoundException;
-import sun.security.krb5.internal.crypto.CksumType;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -132,7 +131,7 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
 				put(CustomerController.BASE_URL+"/1").contentType(MediaType.APPLICATION_JSON).content(asJsonString(customer)))
 				.andExpect(status().isOk()).andExpect(jsonPath("$.firstname", equalTo("Fred")))
 				.andExpect(jsonPath("$.lastname", equalTo("Flintstone")))
-				.andExpect(jsonPath("$.customer_url", equalTo("/api/v1/customers/1")));
+				.andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL+"/1")));
 	}
 
 	@Test

@@ -1,7 +1,6 @@
 package guru.springframework.api.v1.mapper;
 
 import org.springframework.stereotype.Component;
-
 import guru.springframework.api.v1.model.CustomerDTO;
 import guru.springframework.domain.Customer;
 
