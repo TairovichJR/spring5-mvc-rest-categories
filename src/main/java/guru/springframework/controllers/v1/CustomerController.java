@@ -15,10 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import guru.springframework.api.v1.model.CustomerDTO;
 import guru.springframework.api.v1.model.CustomerListDTO;
 import guru.springframework.services.CustomerService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * Created by tairovich_jr on Oct 13, 2020
  */
+@Api(tags = {"customer"})
 @Controller
 @RequestMapping(CustomerController.BASE_URL)
 public class CustomerController {
@@ -31,6 +34,7 @@ public class CustomerController {
 		this.customerService = customerService;
 	}
 	
+	@ApiOperation(value = "This will get a list of customers", notes = "These are some notes about the customer API")
 	@GetMapping
 	public ResponseEntity<CustomerListDTO> getAllCustomers(){
 		return new ResponseEntity<CustomerListDTO>

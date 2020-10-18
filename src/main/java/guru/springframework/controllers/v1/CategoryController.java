@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import guru.springframework.api.v1.model.CategoryDTO;
 import guru.springframework.api.v1.model.CategoryListDTO;
 import guru.springframework.services.CategoryService;
+import io.swagger.annotations.Api;
 
 /**
  * Created by tairovich_jr on Oct 12, 2020
  */
+@Api(tags = {"category"})
 @RestController
 @RequestMapping(CategoryController.BASE_URL)
 public class CategoryController {
